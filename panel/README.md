@@ -22,8 +22,10 @@ No se crearon tablas ni se modificó la base de Vivat. El archivo SQL es una pro
 ## Qué mide
 
 - Rango por defecto: mes actual hasta hoy, con límites de fecha en Argentina (UTC−3). Máximo 367 días; los rangos inválidos muestran aviso y vuelven al mes actual.
-- Perfiles nuevos, nuevos perfiles verificados, publicaciones nuevas, publicadores únicos, postulaciones y postulantes únicos, publicadores que recibieron postulaciones, contratos nuevos.
-- Contratos activos: último estado vigente en Historial_Estado_Contrato, al cierre del período o al momento actual si es anterior. Se utiliza Estado_contrato.nombre = activo.
+- Perfiles nuevos y verificados, publicaciones nuevas, publicadores únicos, postulaciones, postulantes únicos y publicadores que recibieron postulaciones.
+- Publicaciones sin pausa y pausadas: estado más reciente de `Historial_Estado_Publicacion` al cierre del período o al momento actual si es anterior. Se excluyen las publicaciones eliminadas del conteo sin pausa y las creadas después del cierre.
+- Postulaciones por propiedad: postulaciones del período divididas por las propiedades distintas con alguna publicación creada hasta el cierre. Incluye propiedades que no recibieron postulaciones; sin propiedades, el promedio no se muestra. También se indica cuántas propiedades recibieron al menos una.
+- Alquileres generados: contratos creados en el período, incluidos los pendientes de firma. Activos y pendientes de firma al cierre: último estado vigente de `Historial_Estado_Contrato`, al cierre del período o al momento actual si es anterior. El gráfico diario usa la fecha de creación de cada contrato.
 - Pasaportes pagados: pasaportes únicos con al menos un Pago_pasaporte.estado = approved. Los pagos aprobados se cuentan por separado.
 - Ingresos brutos: suma del monto de pagos actualmente aprobados, usando created_at como fecha de referencia. ARS es la moneda operativa acordada para esta primera versión. Pago_pasaporte no tiene moneda ni fecha de acreditación. No se asimilan pasaportes emitidos a pagos.
 - Resultado neto registrado: ingresos brutos menos gastos cargados por fecha del gasto. No es un cierre contable auditado. Comisiones e impuestos deben cargarse como gastos; no se infieren. No incluye ingresos de corredores.

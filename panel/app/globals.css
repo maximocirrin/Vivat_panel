@@ -354,7 +354,7 @@ input[type=date] {
 }
 .metrics-grid {
   display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(165px,1fr));
   gap:14px
 }
 .metric-card {
@@ -366,10 +366,14 @@ input[type=date] {
 .metric-label {
   display:flex;
   justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
   font-size:11px;
+  line-height:1.4;
   color:var(--muted)
 }
 .metric-label svg {
+  flex:none;
   color:#9b2c2c
 }
 .metric-card strong {
@@ -379,7 +383,8 @@ input[type=date] {
   margin:15px 0 9px
 }
 .metric-card small {
-  font-size:10px
+  font-size:10px;
+  line-height:1.5
 }
 .chart-grid {
   display:grid;
